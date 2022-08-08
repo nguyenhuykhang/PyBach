@@ -31,17 +31,24 @@ def thu_tu_tang_dan():
 
 # Bai 3. Viết hàm nhập vào một tháng m hợp lệ và cho biết tháng đó có bao nhiêu ngày?
 def month():
-    nhap = int(input("Nhap vao 1 thang trong nam: "))
-    while not 0 < nhap <= 12:
-        nhap = int(input("Khong hop le, nhap vao 1 thang trong nam: "))
+    thang = 0
+    while True:
+        nhap = input("Nhap 1 thang trong nam: ")
+        if nhap.isnumeric():
+            thang = int(nhap)
+            break
+        else:
+             print("Nhap sai du lieu.")
+
     thang_31 = [1, 3, 5, 7, 8, 10, 12]
     thang_30 = [4, 6, 9, 11]
 
-    if nhap == 2:
+
+    if (thang) == 2:
         print("Thang", nhap, "co 29 ngay")
-    elif nhap in thang_31:
+    elif (thang) in thang_31:
         print("Thang", nhap, "co 31 ngay")
-    elif nhap in thang_30:
+    elif (thang) in thang_30:
         print("Thang", nhap, "co 30 ngay")
 
 
@@ -174,21 +181,77 @@ def check_nguyen_to(x):
 # Bai 12 Viết hàm tính số hạng thứ k của dãy Fibonaci.
 # Dãy Fibonaci là dãy số gồm các số hạng F(k) với: F(k) = F(k-1) + F(k-2) với k>2 và F(1) = F(2) = 1.
 def k_fibonaci():
-    k = int(input("Nhap so k de tim so fibonaci: "))
-    dem = 1
-    if k == 1 or k == 2:
-        print("So hang thu", k, "cua day fibonaci la 1")
-    if k >2:
+    arr = [0, 1, 1]
+    so_hang = 0
+    while True:
+        nhap = input("Nhap số hạng thứ k của dãy Fibonaci: ")
+        if nhap.isnumeric():
+            so_hang = int(nhap)
+            break
+        else:
+            print("Nhap sai du lieu.")
+    if so_hang == 0:
+        print("So fibonaci thu 0 la 0")
+    if so_hang == 1:
+        print("So fibonaci thu 1 la 1")
+    if so_hang == 2:
+        print("So fibonaci thu 2 la 1")
+
+    if so_hang > 2:
+        can_tim = 0
+        for i in range(3, int(so_hang) + 1):
+            new = arr[i-1] + arr[i-2]
+            arr.append(new)
+            if i == int(so_hang):
+                can_tim = arr[i]
+                break
+        print(can_tim)
+
+ # 0, 1, 1, 2, 3, 5, 8, 13, 21
+ #   0  1  2  3  4  5  6   7   8
+
+
+# Bai 6. Viết hàm nhập vào một số nguyên k. In ra màn hình biểu diễn nhị phân của số k
+def nhi_phan():
+    k = 0
+    while True:
+        nhap = input("Nhap số k de bieu dien nhi phan: ")
+        if nhap.isnumeric():
+            k = int(nhap)
+            break
+        else:
+            print("Nhap sai du lieu.")
+    arr = []
+    du = k % 2
+    arr.append(du)
+    con_lai = k // 2
+    while True:
+        du = con_lai % 2
+        arr.append(du)
+        con_lai = con_lai // 2
+        if con_lai == 0:
+            break
+    # tach = list(arr)
+    s = ''.join(str(x) for x in arr)
+    print("So", k, "bieu dien duoi dang nhi phan la: ", s)
+
+
+
+
+
 
 
 if __name__ == '__main__':
     k_fibonaci()
+    nhi_phan()
+    # k_fibonaci()
+    month()
     nto_trong_doan()
     tam_hoa()
     so_phong_phu()
     ucln_bcnn()
     so_hoan_hao_k()
     liet_ke_nguyen_to()
-    month()
+
     thu_tu_tang_dan()
     max_vitri()
