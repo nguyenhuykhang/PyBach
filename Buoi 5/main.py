@@ -34,16 +34,9 @@ except (NameError, ZeroDivisionError):
 
 
 print("ax**2 + b*x + c = 0")
-while True:
     a = int(input("Moi ban nhap a: "))
     b = int(input("Moi ban nhap b: "))
     c = int(input("Moi ban nhap c: "))
-try:
-    int
-
-
-
-
 delta = (b**2) / (4*a*c)
 
 if delta < 0:
