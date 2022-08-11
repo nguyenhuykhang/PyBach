@@ -238,9 +238,6 @@ def nhi_phan():
 
 
 
-
-
-
 if __name__ == '__main__':
     k_fibonaci()
     nhi_phan()
@@ -252,6 +249,5 @@ if __name__ == '__main__':
     ucln_bcnn()
     so_hoan_hao_k()
     liet_ke_nguyen_to()
-
     thu_tu_tang_dan()
     max_vitri()
