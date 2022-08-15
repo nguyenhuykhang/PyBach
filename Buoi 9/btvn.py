@@ -1,6 +1,4 @@
 import math
-
-
 class Vector():
     def __init__(self, x, y):
         self.x = float(x)
@@ -49,11 +47,14 @@ class Vector():
 
 
 if __name__ == '__main__':
-    v1 = Vector(0, 0)
+    v1 = Vector(4, 6.4)
     v2 = Vector(1.1, 10 / 3)
+    fl = 4
     num = (4 ,4)
     print("v1: ", v1.__str__())
+    print("v2: ", v2.__repr__())
     print("Sum: ", v1.__add__(v2))
+    st =  v1.__sub__(v2)
     print("Subtract: ", v1.__sub__(v2))
     rs = v1.__eq__(v2)
     print("Equal?: ", rs)
@@ -62,4 +63,5 @@ if __name__ == '__main__':
     print("Unit v1: ", v1.unit())
     print("Unit v2: ", v2.unit())
     print("Dot product (dot product yields a scalar): ", v1.__mul__(v2))
+    print(v1.__rmul__(v2))
 
