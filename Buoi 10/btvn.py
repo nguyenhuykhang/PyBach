@@ -62,6 +62,7 @@
 # not?) Same object
 
 
+# Exercise 9.2  More Inheritance
 class Spell(object):
     def __init__(self, incantation, name):
         self.name = name
