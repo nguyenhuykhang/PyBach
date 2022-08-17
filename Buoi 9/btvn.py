@@ -26,10 +26,10 @@ class Vector():
 
     def unit(self):
         mag = (self.magnitude())
-        if (mag) == 0:
+        if mag == 0:
             raise ValueError("Cannot convert zero vector to a unit vector")
         elif float(mag) > 0 or float(mag) < 0:
-            return Vector((self).x / float(mag), (self).y / float(mag))
+            return Vector(self.x / float(mag), self.y / float(mag))
 
         # try:
         #     print("magnitude for unit vector: ",mag)
@@ -41,13 +41,15 @@ class Vector():
     def __mul__(self, vec):
         dot = self.x * vec.x + self.y * vec.y
         return dot
+    def mul_float(self):
+        return (self.x * fl, self.y*fl)
 
     def __rmul__(self, vec):
         return self.__mul__(vec)
 
 
 if __name__ == '__main__':
-    v1 = Vector(4, 6.4)
+    v1 = Vector(0, 0)
     v2 = Vector(1.1, 10 / 3)
     fl = 4
     num = (4 ,4)
@@ -63,5 +65,6 @@ if __name__ == '__main__':
     print("Unit v1: ", v1.unit())
     print("Unit v2: ", v2.unit())
     print("Dot product (dot product yields a scalar): ", v1.__mul__(v2))
-    print(v1.__rmul__(v2))
+    print("rmul: ", v1.__rmul__(v2))
+    print(v2.mul_float())
 
